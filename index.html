@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cloud DevOps programme: our reading | Crewnexa for MotivaLogic Academy</title>
+<meta name="description" content="Our reading of the MotivaLogic Cloud DevOps programme and where an instructor from Crewnexa fits into it.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your Cloud DevOps programme: our reading, and where our instructor fits">
+<meta property="og:description" content="Saturday masterclass, placement sprints, your week, and AWS SAA readiness. Prepared by Crewnexa for MotivaLogic Academy.">
+<meta property="og:image" content="https://mudassar-zafar.github.io/motivalogic-cloud-devops/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230C3484'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0C3484; --blue:#2E79DB; --deep:#0050A8;
+  --mist:#F3F6FB; --line:#DCE3EE; --ink:#2A2F3A; --soft:#5B6475;
+  --amber:#8A5300; --amber-bg:#FFF3DA; --amber-line:#F1D08E;
+  --green:#17683F; --green-bg:#E7F4EC;
+  --radius-lg:14px; --radius-sm:8px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.6;font-variant-numeric:tabular-nums}
+a{color:var(--deep)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:4px}
+
+/* top bar */
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+.word{font-weight:700;font-size:20px;letter-spacing:-.01em;color:var(--navy)}
+.for{font-size:14px;color:var(--soft)}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:52px 0 40px}
+.hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.15;letter-spacing:-.02em;font-weight:700;margin:0 0 14px;max-width:23ch}
+.hero p.sub{margin:0;max-width:52ch;color:#D6E2F7;font-size:17px}
+.herogrid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;margin-bottom:36px}
+.secs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sec{text-align:left;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);border-radius:12px;padding:14px 14px 13px;color:#fff;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-height:112px;transition:background .15s ease,border-color .15s ease}
+.sec:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.45)}
+.sec b{font-size:16px;font-weight:600;line-height:1.25}
+.sec span{font-size:13.5px;color:#C9D8F2;line-height:1.4}
+.sec.is-on{background:#fff;border-color:#fff;color:var(--navy)}
+.sec.is-on span{color:#4E5B73}
+
+/* week strip: the one memorable element */
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;min-height:150px;padding:10px 8px 8px;display:flex;flex-direction:column;gap:6px;position:relative}
+.day .dn{font-size:13px;font-weight:600;color:#B9CDF0}
+.blk{display:block;width:100%;text-align:left;border:0;border-radius:7px;padding:7px 8px;font:inherit;font-size:12.5px;line-height:1.3;cursor:pointer;color:#fff;transition:transform .15s ease, box-shadow .15s ease}
+.blk:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.blk.ms{background:var(--blue);flex:1;font-weight:600;font-size:14px;display:flex;flex-direction:column;justify-content:flex-end}
+.blk.ms small{font-weight:400;font-size:12px;color:#E3EEFF}
+.blk.pl{background:#3567C2;margin-top:auto}
+.blk.note{background:#fff;color:var(--navy);font-weight:600}
+.day.off{background:transparent;border-style:dashed}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:13.5px;color:#C9D8F2}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px;background:var(--c)}
+
+/* tabs */
+.tabsbar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(12,52,132,.06)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1.5px solid var(--line);background:var(--mist);color:var(--navy);font:inherit;font-weight:600;font-size:15.5px;padding:11px 20px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tab:hover{border-color:var(--blue)}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* panels */
+main{padding:44px 0 56px}
+.panel h2{font-size:26px;line-height:1.25;letter-spacing:-.015em;margin:0 0 8px;color:var(--navy)}
+.panel h3{font-size:18px;margin:34px 0 12px;color:var(--navy);letter-spacing:-.005em}
+.lead{max-width:68ch;color:var(--soft);margin:0 0 26px;font-size:17px}
+.muted{color:var(--soft)}
+[hidden]{display:none!important}
+
+/* tab 1: proportional timeline */
+.timeline{display:flex;border-radius:var(--radius-sm);overflow:hidden;min-height:58px}
+.seg{padding:10px 10px;color:#fff;font-size:13.5px;line-height:1.25;font-weight:600;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.seg span{font-weight:400;opacity:.85;font-size:12.5px}
+.seg em{display:none;font-style:normal}
+.s1{background:#5B8FD9}.s2{background:var(--blue)}.s3{background:var(--deep)}.s4{background:var(--navy)}.s5{background:#3E5F99}
+.seg.brk{background:repeating-linear-gradient(135deg,#E3E9F3 0 5px,#F3F6FB 5px 10px);padding:0}
+.steps{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:s}
+.steps li{font-size:14.5px;color:var(--soft);counter-increment:s}
+.steps li b{display:block;color:var(--ink);font-size:15px}
+.steps li b::before{content:counter(s) ". ";color:var(--blue)}
+.example{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;margin-top:8px;align-items:start}
+.exlist{margin:0;padding:0;list-style:none}
+.exlist li{padding:12px 0;border-top:1px solid var(--line)}
+.exlist li:first-child{border-top:0;padding-top:0}
+.exlist b{color:var(--navy)}
+.fig{background:var(--mist);border:1px solid var(--line);border-radius:var(--radius-lg);padding:14px}
+.fig figcaption{font-size:13px;color:var(--soft);margin-top:6px}
+.qa{margin-top:14px;display:grid;gap:8px}
+details{border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 14px;background:#fff}
+details summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;position:relative;padding-right:90px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"Show answer";position:absolute;right:0;top:1px;font-size:13px;font-weight:600;color:var(--blue)}
+details[open] summary::after{content:"Hide"}
+details p{margin:8px 0 2px;color:var(--soft)}
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.note{border-radius:var(--radius-sm);padding:12px 14px;font-size:15px}
+.note.warn{background:var(--amber-bg);border:1px solid var(--amber-line);color:#5C3B00}
+.note.warn b{color:var(--amber)}
+.note.info{background:#EAF1FC;border:1px solid #C9DAF4;color:#173A73}
+.note.info b{color:var(--navy)}
+
+/* tab 2 */
+.sprints{display:grid;gap:12px}
+.sprint{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center}
+.sprint .lab{font-weight:600;color:var(--navy);font-size:15px;line-height:1.3}
+.sprint .lab small{display:block;font-weight:400;color:var(--soft);font-size:13px}
+.chain{display:flex;gap:6px;flex-wrap:wrap}
+.chain span{background:var(--mist);border:1px solid var(--line);border-radius:6px;padding:7px 12px;font-size:14px;position:relative}
+.chain span.out{background:var(--green-bg);border-color:#BFE0CC;color:var(--green);font-weight:600}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.col{background:var(--mist);border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px;min-height:92px}
+.col h4{margin:0 0 8px;font-size:13.5px;color:var(--navy)}
+.card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:5px;padding:6px 8px;font-size:12.5px;line-height:1.35;color:var(--soft)}
+.col.done .card{border-left-color:var(--green)}
+.dod{margin-top:10px;font-size:15px;color:var(--soft)}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
+.checks h4{margin:0 0 6px;font-size:15.5px;color:var(--navy)}
+.checks ul{margin:0;padding:0;list-style:none}
+.checks li{padding-left:24px;position:relative;font-size:14.5px;margin:4px 0}
+.checks li::before{content:"";position:absolute;left:2px;top:6px;width:12px;height:7px;border-left:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(-45deg)}
+.projects{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.projects li{display:grid;grid-template-columns:minmax(200px,.8fr) 1.2fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start}
+.projects .pn{font-weight:600;color:var(--ink);font-size:15px;line-height:1.35}
+.projects .pn small{display:block;font-weight:400;color:var(--soft);font-size:13px;margin-top:2px}
+.stuck{background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:6px;padding:8px 12px;font-size:14.5px;color:#5C3B00}
+.stuck b{color:var(--amber)}
+.close{margin-top:22px;font-size:16px;color:var(--ink);font-weight:500}
+
+/* tab 3 */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
+.commit{list-style:none;margin:0;padding:0}
+.commit li{padding:14px 0 14px 0;border-top:1px solid var(--line)}
+.commit li:first-child{border-top:0;padding-top:0}
+.commit b{display:block;color:var(--navy);font-size:16px}
+.commit span{color:var(--soft);font-size:15px}
+.mail{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 10px 30px rgba(12,52,132,.08)}
+.mail .mh{background:var(--mist);padding:14px 16px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--soft);line-height:1.5}
+.mail .mh b{color:var(--ink);font-weight:600}
+.mail .mb{padding:6px 16px 12px}
+.mail .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.mail .row:last-child{border-bottom:0}
+.mail .row i{font-style:normal;color:#9AA3B2;font-size:13.5px}
+.cover{margin-top:30px;background:var(--green-bg);border:1px solid #BFE0CC;border-radius:var(--radius-lg);padding:18px 20px}
+.cover h3{margin:0 0 6px;color:var(--green)}
+.cover p{margin:0;color:#1F4A33;max-width:75ch}
+.coverflow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.coverflow span{background:#fff;border:1px solid #BFE0CC;border-radius:6px;padding:6px 11px;font-size:14px;color:#1F4A33}
+
+/* tab 4 */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.fact{background:var(--mist);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px}
+.fact b{display:block;font-size:22px;color:var(--navy);line-height:1.2}
+.fact span{font-size:13.5px;color:var(--soft)}
+.weights{display:flex;height:44px;border-radius:var(--radius-sm);overflow:hidden;margin-top:6px}
+.weights div{display:flex;align-items:center;padding:0 10px;color:#fff;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden}
+.d1{background:var(--navy)}.d2{background:var(--deep)}.d3{background:var(--blue)}.d4{background:#3F74BF}
+.wlegend{display:none;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px;font-size:13.5px;color:var(--soft)}
+.wlegend b{color:var(--ink);font-weight:600}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13.5px;color:var(--soft);font-weight:600;background:var(--mist)}
+td.wk{white-space:nowrap;font-weight:600;color:var(--navy)}
+.chip{display:inline-block;color:#fff;border-radius:5px;padding:2px 8px;font-size:12.5px;font-weight:600;margin:2px 4px 2px 0;white-space:nowrap}
+.drills{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.drills span{background:var(--amber-bg);border:1px solid var(--amber-line);color:#5C3B00;border-radius:6px;padding:7px 12px;font-size:14.5px}
+.src{font-size:13px;color:var(--soft);margin-top:10px}
+
+.pnav{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:flex-end}
+.next{font:inherit;font-weight:600;font-size:15px;color:#fff;background:var(--navy);border:0;border-radius:999px;padding:11px 20px;cursor:pointer}
+.next:hover{background:var(--deep)}
+footer{border-top:1px solid var(--line);padding:22px 0 34px;font-size:14px;color:var(--soft)}
+footer .word{font-size:16px}
+
+/* responsive */
+@media (max-width:860px){
+  .example,.split,.herogrid{grid-template-columns:1fr}
+  .herogrid{gap:24px}
+  .steps{grid-template-columns:1fr 1fr}
+  .board{grid-template-columns:repeat(5,minmax(120px,1fr));overflow-x:auto}
+  .checks{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  .projects li{grid-template-columns:1fr;gap:8px}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  .hero{padding:36px 0 28px}
+  .week{gap:4px}
+  .day{min-height:132px;padding:8px 4px 6px}
+  .blk{font-size:0;padding:6px 4px;min-height:22px}
+  .blk.ms{font-size:0}
+  .blk small{display:none}
+  .day .dn{font-size:12px;text-align:center}
+  .for{display:none}
+  .legend{gap:6px 16px}
+  .tabs{display:grid;grid-template-columns:1fr 1fr;overflow:visible}
+  .tab{padding:9px 10px;font-size:14px;text-align:center}
+  .timeline .seg span,.timeline .seg strong{display:none}
+  .seg em{display:block;text-align:center;font-size:15px}
+  .seg{padding:8px 4px;align-items:center}
+  .steps{grid-template-columns:1fr}
+  .secs{grid-template-columns:1fr}
+  .sec{min-height:0}
+  .notes{grid-template-columns:1fr}
+  .sprint{grid-template-columns:1fr;gap:6px}
+  .weights div{font-size:0;padding:0}
+  .wlegend{display:grid;grid-template-columns:1fr 1fr}
+  table{font-size:14px}
+  th,td{padding:9px 6px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* print / PDF: show everything */
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  body{font-size:12.5px}
+  .tabsbar,.blk:hover{box-shadow:none}
+  .tabsbar,.pnav,.secs{display:none}
+  .herogrid{grid-template-columns:1fr}
+  .panel{display:block!important;margin-top:26px}
+  .panel h2,.panel h3{break-after:avoid}
+  [hidden]{display:block!important}
+  details{break-inside:avoid}
+  details p{display:block}
+  details summary::after,details[open] summary::after{content:""}
+  .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .projects li,.commit li,tr,.fact,.col{break-inside:avoid}
+  .fig,.qa,.notes,.cover,.mail{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="word">Crewnexa</span>
+    <span class="for">Prepared for MotivaLogic Academy</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="herogrid">
+      <div>
+        <h1>Your Cloud DevOps programme: our reading, and where our instructor fits</h1>
+        <p class="sub">Put together from your published course and placement material. Your process, tools and standards come first, and everything on this page adapts to how the programme already runs.</p>
+      </div>
+      <div class="secs" aria-label="Sections on this page">
+        <button class="sec is-on" data-go="masterclass"><b>Saturday masterclass</b><span>How a five-hour module runs, with Week 5 VPC worked through.</span></button>
+        <button class="sec" data-go="sprints"><b>Placement sprints</b><span>Sprint rhythm, ticket flow and what we check on every pull request.</span></button>
+        <button class="sec" data-go="week"><b>Your week</b><span>What reaches you every Monday, and how cover works.</span></button>
+        <button class="sec" data-go="saa"><b>AWS SAA readiness</b><span>Your AWS weeks mapped to the exam domains.</span></button>
+      </div>
+    </div>
+
+    <div class="week" aria-label="A typical programme week">
+      <div class="day"><span class="dn">Mon</span>
+        <button class="blk note" data-go="week">Your weekly note</button>
+        <button class="blk pl" data-go="sprints">Placement session</button>
+      </div>
+      <div class="day"><span class="dn">Tue</span><button class="blk pl" data-go="sprints">Placement session</button></div>
+      <div class="day"><span class="dn">Wed</span><button class="blk pl" data-go="sprints">Placement session</button></div>
+      <div class="day"><span class="dn">Thu</span><button class="blk pl" data-go="sprints">Placement session</button></div>
+      <div class="day"><span class="dn">Fri</span><button class="blk pl" data-go="sprints">Placement session</button></div>
+      <div class="day"><span class="dn">Sat</span>
+        <button class="blk ms" data-go="masterclass">Masterclass<small>one module, built and running</small></button>
+      </div>
+      <div class="day off"><span class="dn">Sun</span></div>
+    </div>
+    <div class="legend">
+      <span style="--c:#2E79DB">Saturday masterclass</span>
+      <span style="--c:#3567C2">Weeknight placement sessions</span>
+      <span style="--c:#fff">Monday note to you</span>
+    </div>
+  </div>
+</section>
+
+<div class="tabsbar">
+  <div class="wrap">
+    <div class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" id="t-masterclass" aria-controls="masterclass" aria-selected="true">Saturday masterclass</button>
+      <button class="tab" role="tab" id="t-sprints" aria-controls="sprints" aria-selected="false" tabindex="-1">Placement sprints</button>
+      <button class="tab" role="tab" id="t-week" aria-controls="week" aria-selected="false" tabindex="-1">Your week</button>
+      <button class="tab" role="tab" id="t-saa" aria-controls="saa" aria-selected="false" tabindex="-1">AWS SAA readiness</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- TAB 1 -->
+<section class="panel" id="masterclass" role="tabpanel" aria-labelledby="t-masterclass">
+  <h2>Saturday masterclass</h2>
+  <p class="lead">As we understand it, each Saturday takes one module from idea to something running on AWS before the session ends. This is the shape we would bring to that five-hour block, with two short breaks built in.</p>
+
+  <div class="timeline" aria-label="Five-hour session, drawn to scale">
+    <div class="seg s1" style="flex:15"><em>1</em><strong>Recap</strong><span>15 min</span></div>
+    <div class="seg s2" style="flex:55"><em>2</em><strong>Concept first</strong><span>55 min</span></div>
+    <div class="seg brk" style="flex:15" role="img" aria-label="Break, 15 minutes"></div>
+    <div class="seg s3" style="flex:70"><em>3</em><strong>Live build</strong><span>70 min</span></div>
+    <div class="seg brk" style="flex:15" role="img" aria-label="Break, 15 minutes"></div>
+    <div class="seg s4" style="flex:90"><em>4</em><strong>Guided lab</strong><span>90 min</span></div>
+    <div class="seg s5" style="flex:40"><em>5</em><strong>Checkpoint</strong><span>40 min</span></div>
+  </div>
+  <p class="muted" style="margin:8px 0 0;font-size:13.5px">Hatched blocks are the two breaks. Five hours in total.</p>
+  <ol class="steps">
+    <li><b>Recap and blockers</b>Open questions from last week's lab and the self-study.</li>
+    <li><b>Concept first</b>The architecture drawn and explained before anyone opens the console.</li>
+    <li><b>Live build</b>The instructor builds it live, mistakes included, so learners see real debugging.</li>
+    <li><b>Guided lab</b>Learners build it in their own AWS accounts with screen-share support.</li>
+    <li><b>Checkpoint and wrap</b>A short quiz, what goes into their GitHub, and a look at next week.</li>
+  </ol>
+
+  <h3>Worked example: Week 5, AWS VPC</h3>
+  <div class="example">
+    <div>
+      <ul class="exlist">
+        <li><b>Concept.</b> How traffic reaches a public subnet through the internet gateway, and how private instances reach out through a NAT gateway without being reachable from outside.</li>
+        <li><b>Live build.</b> A two-tier VPC across two Availability Zones: public and private subnets, route tables, a NAT gateway, security groups and network ACLs.</li>
+        <li><b>Guided lab.</b> Learners build the same VPC, then remove the private route to the NAT gateway on purpose and fix it.</li>
+      </ul>
+      <div class="qa">
+        <details><summary>A private instance cannot download updates. What do you check first?</summary><p>The private subnet's route table: it needs a 0.0.0.0/0 route to the NAT gateway, and the NAT gateway must sit in a public subnet that routes to the internet gateway.</p></details>
+        <details><summary>Security group or network ACL: which one is stateful?</summary><p>The security group. Return traffic is allowed automatically. A network ACL is stateless, so return traffic needs its own rule.</p></details>
+        <details><summary>Why spread across two Availability Zones?</summary><p>If one zone has a problem, the other keeps serving. It is also the base for the load balancing and Auto Scaling work in Week 6.</p></details>
+      </div>
+    </div>
+    <figure class="fig" style="margin:0">
+      <svg viewBox="0 0 420 330" role="img" aria-label="Two-tier VPC across two Availability Zones" style="width:100%;height:auto;display:block">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0C3484"/></marker>
+        <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#17683F"/></marker></defs>
+        <text x="210" y="18" text-anchor="middle" font-size="12.5" fill="#5B6475" font-family="IBM Plex Sans, sans-serif">Internet</text>
+        <rect x="146" y="28" width="128" height="28" rx="6" fill="#0C3484"/>
+        <text x="210" y="47" text-anchor="middle" font-size="12" fill="#fff" font-family="IBM Plex Sans, sans-serif" font-weight="600">Internet gateway</text>
+        <rect x="12" y="70" width="396" height="248" rx="12" fill="#fff" stroke="#0C3484" stroke-width="1.5"/>
+        <text x="24" y="90" font-size="12" fill="#0C3484" font-family="IBM Plex Sans, sans-serif" font-weight="600">VPC</text>
+        <rect x="26" y="98" width="178" height="208" rx="9" fill="none" stroke="#9FB6DA" stroke-dasharray="5 4"/>
+        <rect x="216" y="98" width="178" height="208" rx="9" fill="none" stroke="#9FB6DA" stroke-dasharray="5 4"/>
+        <text x="115" y="116" text-anchor="middle" font-size="11.5" fill="#5B6475" font-family="IBM Plex Sans, sans-serif">Availability Zone A</text>
+        <text x="305" y="116" text-anchor="middle" font-size="11.5" fill="#5B6475" font-family="IBM Plex Sans, sans-serif">Availability Zone B</text>
+        <rect x="38" y="126" width="154" height="70" rx="7" fill="#E7F4EC" stroke="#9CCFB2"/>
+        <text x="50" y="144" font-size="11.5" fill="#17683F" font-family="IBM Plex Sans, sans-serif" font-weight="600">Public subnet</text>
+        <rect x="50" y="154" width="130" height="30" rx="5" fill="#fff" stroke="#9CCFB2"/>
+        <text x="115" y="173" text-anchor="middle" font-size="11.5" fill="#2A2F3A" font-family="IBM Plex Sans, sans-serif">NAT gateway</text>
+        <rect x="228" y="126" width="154" height="70" rx="7" fill="#E7F4EC" stroke="#9CCFB2"/>
+        <text x="240" y="144" font-size="11.5" fill="#17683F" font-family="IBM Plex Sans, sans-serif" font-weight="600">Public subnet</text>
+        <rect x="240" y="154" width="130" height="30" rx="5" fill="#fff" stroke="#9CCFB2"/>
+        <text x="305" y="173" text-anchor="middle" font-size="11.5" fill="#2A2F3A" font-family="IBM Plex Sans, sans-serif">Bastion host</text>
+        <rect x="38" y="222" width="154" height="70" rx="7" fill="#EAF1FC" stroke="#A9C3EA"/>
+        <text x="50" y="240" font-size="11.5" fill="#0C3484" font-family="IBM Plex Sans, sans-serif" font-weight="600">Private subnet</text>
+        <rect x="50" y="250" width="130" height="30" rx="5" fill="#fff" stroke="#A9C3EA"/>
+        <text x="115" y="269" text-anchor="middle" font-size="11.5" fill="#2A2F3A" font-family="IBM Plex Sans, sans-serif">App server</text>
+        <rect x="228" y="222" width="154" height="70" rx="7" fill="#EAF1FC" stroke="#A9C3EA"/>
+        <text x="240" y="240" font-size="11.5" fill="#0C3484" font-family="IBM Plex Sans, sans-serif" font-weight="600">Private subnet</text>
+        <rect x="240" y="250" width="130" height="30" rx="5" fill="#fff" stroke="#A9C3EA"/>
+        <text x="305" y="269" text-anchor="middle" font-size="11.5" fill="#2A2F3A" font-family="IBM Plex Sans, sans-serif">App server</text>
+        <path d="M196 57 L178 124" stroke="#0C3484" stroke-width="1.6" fill="none" marker-start="url(#ar)" marker-end="url(#ar)"/>
+        <path d="M224 57 L242 124" stroke="#0C3484" stroke-width="1.6" fill="none" marker-start="url(#ar)" marker-end="url(#ar)"/>
+        <path d="M100 250 L100 186" stroke="#17683F" stroke-width="1.8" fill="none" marker-end="url(#ag)" stroke-dasharray="4 3"/>
+        <path d="M305 250 L305 210 L134 210 L134 186" stroke="#17683F" stroke-width="1.8" fill="none" marker-end="url(#ag)" stroke-dasharray="4 3"/>
+        <text x="168" y="205" text-anchor="middle" font-size="10.5" fill="#17683F" font-family="IBM Plex Sans, sans-serif">outbound only</text>
+      </svg>
+      <figcaption>Public subnets route to the internet gateway. Both private subnets reach out through the one NAT gateway and cannot be reached from the internet.</figcaption>
+    </figure>
+  </div>
+
+  <div class="notes">
+    <div class="note warn"><b>Cost habit.</b> The NAT gateway bills by the hour, so learners tear it down at the end of the lab.</div>
+    <div class="note info"><b>Carry-over.</b> In Week 7 the same VPC is rebuilt in Terraform, so learners code something they already understand.</div>
+  </div>
+  <div class="pnav"><button class="next" data-go="sprints">Next: Placement sprints</button></div>
+</section>
+
+<!-- TAB 2 -->
+<section class="panel" id="sprints" role="tabpanel" aria-labelledby="t-sprints" hidden>
+  <h2>Placement sprints</h2>
+  <p class="lead">Each placement project runs as two sprints, an MVP for stakeholders and then full delivery. This is how we would lead a cohort through it as technical lead, inside your Jira and GitHub setup.</p>
+
+  <div class="sprints">
+    <div class="sprint"><div class="lab">Sprint 1<small>MVP</small></div>
+      <div class="chain"><span>Sprint planning</span><span>Daily stand-ups and blocker clearing</span><span>Sprint review</span><span class="out">MVP to stakeholders</span><span>Retrospective</span></div></div>
+    <div class="sprint"><div class="lab">Sprint 2<small>Full delivery</small></div>
+      <div class="chain"><span>Sprint planning</span><span>Daily stand-ups and blocker clearing</span><span>Sprint review</span><span class="out">Project delivered</span><span>Retrospective</span></div></div>
+  </div>
+
+  <h3>Ticket flow</h3>
+  <div class="board" aria-label="Ticket flow from backlog to done">
+    <div class="col"><h4>Backlog</h4><div class="card">Provision RDS in private subnets</div></div>
+    <div class="col"><h4>Ready</h4><div class="card">Jenkins stage: Trivy scan</div></div>
+    <div class="col"><h4>In progress</h4><div class="card">Helm values for staging</div></div>
+    <div class="col"><h4>In review</h4><div class="card">PR open: ASG launch template</div></div>
+    <div class="col done"><h4>Done</h4><div class="card">S3 bucket for uploads</div></div>
+  </div>
+  <p class="dod">Every ticket carries acceptance criteria and a definition of done, for example: plan runs clean, scans pass, README updated.</p>
+
+  <h3>What we check on every pull request</h3>
+  <div class="checks">
+    <div><h4>Terraform</h4><ul><li>Plan output attached to the PR</li><li>No hardcoded secrets</li><li>Variables and outputs used properly, remote state</li><li>Checkov findings fixed or explained</li></ul></div>
+    <div><h4>Pipelines</h4><ul><li>Stages fail fast</li><li>SonarQube quality gate enforced</li><li>Trivy scan before the image is pushed to Nexus</li><li>Credentials kept in Jenkins, not in code</li></ul></div>
+    <div><h4>Kubernetes and Helm</h4><ul><li>Resource requests and limits set</li><li>Readiness and liveness probes</li><li>No "latest" image tags</li><li>Separate values per environment</li></ul></div>
+    <div><h4>Docs</h4><ul><li>README covers how to run it and how to tear it down</li><li>A short note on what runs where and why</li></ul></div>
+  </div>
+
+  <h3>Where learners usually get stuck</h3>
+  <ul class="projects">
+    <li><div class="pn">Scalable image sharing web application<small>LAMP on EC2, RDS, ELB, Auto Scaling, S3, CloudFront</small></div><div class="stuck"><b>Watch for:</b> uploads saved on the instance disk vanish when Auto Scaling replaces it. They belong in S3.</div></li>
+    <li><div class="pn">Containerised Java application<small>Jenkins, SonarQube, Nexus, Docker, Terraform, Ansible</small></div><div class="stuck"><b>Watch for:</b> Nexus registry login and Jenkins credentials, then the SonarQube gate failing the build.</div></li>
+    <li><div class="pn">Automated disaster recovery<small>Separate Auto Scaling groups, scheduled Ansible configuration</small></div><div class="stuck"><b>Watch for:</b> new instances must configure themselves. The only real test is terminating one and watching it recover.</div></li>
+    <li><div class="pn">Microservices on kubeadm<small>HA control plane, HAProxy and Keepalived, bastion, Helm</small></div><div class="stuck"><b>Watch for:</b> the control plane behind HAProxy and Keepalived, and reaching private nodes through the bastion.</div></li>
+    <li><div class="pn">E-commerce microservices<small>Kubernetes with ArgoCD and Istio</small></div><div class="stuck"><b>Watch for:</b> the namespace not labelled for Istio sidecar injection, and manual kubectl edits that ArgoCD quietly reverts.</div></li>
+  </ul>
+  <p class="close">Every learner finishes each project with a repository a hiring manager can follow in a couple of minutes.</p>
+  <div class="pnav"><button class="next" data-go="week">Next: Your week</button></div>
+</section>
+
+<!-- TAB 3 -->
+<section class="panel" id="week" role="tabpanel" aria-labelledby="t-week" hidden>
+  <h2>Your week</h2>
+  <p class="lead">You will not be managing anyone. This is what reaches you without having to ask.</p>
+
+  <div class="split">
+    <ul class="commit">
+      <li><b>Every Monday morning, Irish time</b><span>A short note from Mudassar Zafar, CEO, Crewnexa, covering sessions held, attendance and lab completion.</span></li>
+      <li><b>Records</b><span>The instructor keeps attendance and lab completion for every session.</span></li>
+      <li><b>Early flags</b><span>Any learner falling behind is flagged to you early, not at the end of the module.</span></li>
+      <li><b>Your tools</b><span>We work inside your LMS, Jira and GitHub, to your standards.</span></li>
+    </ul>
+    <div class="mail" aria-label="Weekly note format">
+      <div class="mh"><b>Weekly note</b><br>From Mudassar Zafar, CEO, Crewnexa<br>Every Monday morning</div>
+      <div class="mb">
+        <div class="row">Sessions held <i>this week</i></div>
+        <div class="row">Attendance <i>per session</i></div>
+        <div class="row">Labs completed <i>per learner</i></div>
+        <div class="row">Learners to watch <i>and why</i></div>
+        <div class="row">SAA quiz results <i>AWS weeks</i></div>
+        <div class="row">Coming up next week <i>module and sprint</i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover">
+    <h3>Cover, so no class is missed</h3>
+    <p>A backup instructor is always available. After every session the instructor updates a shared session log, so the backup always has full context, even if an absence is sudden. For a planned absence you hear ahead of time and cover is arranged.</p>
+    <div class="coverflow"><span>What was covered</span><span>Where the cohort stands</span><span>What comes next</span></div>
+  </div>
+  <div class="pnav"><button class="next" data-go="saa">Next: AWS SAA readiness</button></div>
+</section>
+
+<!-- TAB 4 -->
+<section class="panel" id="saa" role="tabpanel" aria-labelledby="t-saa" hidden>
+  <h2>AWS SAA readiness</h2>
+  <p class="lead">For learners heading for AWS Solutions Architect Associate, the AWS weeks already carry much of the exam. We would make that link visible from the start, so exam preparation is not left to the end.</p>
+
+  <div class="facts">
+    <div class="fact"><b>SAA-C03</b><span>Current exam version</span></div>
+    <div class="fact"><b>65</b><span>Questions</span></div>
+    <div class="fact"><b>130 min</b><span>Exam time</span></div>
+    <div class="fact"><b>720 / 1000</b><span>Pass mark</span></div>
+  </div>
+
+  <h3>What the exam weighs</h3>
+  <div class="weights" aria-label="Exam domain weights">
+    <div class="d1" style="flex:30">Secure 30%</div>
+    <div class="d2" style="flex:26">Resilient 26%</div>
+    <div class="d3" style="flex:24">High-performing 24%</div>
+    <div class="d4" style="flex:20">Cost-optimized 20%</div>
+  </div>
+  <div class="wlegend">
+    <div><b>Secure</b> 30%</div><div><b>Resilient</b> 26%</div><div><b>High-performing</b> 24%</div><div><b>Cost-optimized</b> 20%</div>
+  </div>
+
+  <h3>Your AWS weeks against the exam</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Week</th><th>Module</th><th>What it covers for the exam</th><th>Domains</th></tr></thead>
+    <tbody>
+      <tr><td class="wk">Week 1</td><td>Cloud and DevOps intro</td><td>Regions, Availability Zones, shared responsibility</td><td><span class="chip d1">Secure 1.1</span></td></tr>
+      <tr><td class="wk">Week 2</td><td>EC2 and EBS</td><td>Instance and EBS volume choices, snapshots</td><td><span class="chip d3">High-perf 3.1, 3.2</span><span class="chip d4">Cost 4.1</span></td></tr>
+      <tr><td class="wk">Week 3</td><td>S3 and IAM</td><td>Least privilege, roles, encryption, lifecycle and storage classes</td><td><span class="chip d1">Secure 1.1, 1.3</span><span class="chip d4">Cost 4.1</span></td></tr>
+      <tr><td class="wk">Week 4</td><td>Route 53, Lambda, API Gateway</td><td>Routing and failover, serverless and decoupled design</td><td><span class="chip d2">Resilient 2.1, 2.2</span></td></tr>
+      <tr><td class="wk">Week 5</td><td>VPC</td><td>Subnets, route tables, security groups, NACLs, NAT</td><td><span class="chip d1">Secure 1.2</span><span class="chip d4">Cost 4.4</span></td></tr>
+      <tr><td class="wk">Week 6</td><td>ELB, Auto Scaling, CloudWatch</td><td>High availability and elastic compute</td><td><span class="chip d2">Resilient 2.1, 2.2</span><span class="chip d3">High-perf 3.2</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Exam topics outside the main weekly modules</h3>
+  <p class="muted" style="margin:0 0 10px">Covered as short add-on drills alongside the AWS weeks.</p>
+  <div class="drills"><span>KMS and encryption choices</span><span>SQS, SNS and EventBridge</span><span>Disaster recovery patterns, RPO and RTO</span><span>EC2 purchasing options in depth</span><span>Hybrid connectivity: VPN, Direct Connect, Transit Gateway</span></div>
+
+  <div class="note info" style="margin-top:22px"><b>Checkpoint.</b> A 10-question SAA-style quiz at the end of each AWS week, with results included in the Monday note.</div>
+  <p class="src">Exam details and domain weights from the official AWS Certified Solutions Architect Associate (SAA-C03) exam guide.</p>
+  <div class="pnav"><button class="next" data-go="masterclass">Back to: Saturday masterclass</button></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span class="word">Crewnexa</span><br>Prepared for MotivaLogic Academy, October 2026.</div>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var bar=document.querySelector('.tabsbar');
+  function show(id,focus,scroll){
+    tabs.forEach(function(t){
+      var on=t.getAttribute('aria-controls')===id;
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.tabIndex=on?0:-1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+      var c=document.querySelector('.sec[data-go="'+t.getAttribute('aria-controls')+'"]');if(c)c.classList.toggle('is-on',on);
+      if(on&&focus)t.focus();
+      if(on)t.scrollIntoView({block:'nearest',inline:'nearest'});
+    });
+    if(history.replaceState)history.replaceState(null,'','#'+id);
+    if(scroll){window.scrollTo({top:bar.offsetTop,behavior:'smooth'});}
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),false,false)});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+      if(e.key==='Home')n=tabs[0];
+      if(e.key==='End')n=tabs[tabs.length-1];
+      if(n){e.preventDefault();show(n.getAttribute('aria-controls'),true,false);}
+    });
+  });
+  [].forEach.call(document.querySelectorAll('[data-go]'),function(b){
+    b.addEventListener('click',function(){show(b.getAttribute('data-go'),false,true)});
+  });
+  var h=location.hash.replace('#','');
+  if(h&&document.getElementById(h)&&document.getElementById(h).classList.contains('panel'))show(h,false,false);
+})();
+</script>
+</body>
+</html>
